@@ -171,6 +171,7 @@ export default class extends Component {
 
 
   render() {
+
     return <div>
         <div className="hero-cover" style={{ background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('static/images/cover.jpg')" }}>
           <div className="flex justify-center sm:justify-end pt-5 sm:px-5">
@@ -227,18 +228,11 @@ export default class extends Component {
               </svg>
             </div>
             <div className="mb-12">
-              <h1 className="font-display text-white text-5xl sm:text-6xl font-semibold mb-4 leading-none">
+              <h1 style={{ fontFamily : "'Black Han Sans', sans-serif;", paddingTop: "100px"}} className="font-display text-white text-5xl sm:text-6xl font-semibold mb-4 leading-none">
                 Know your candidates
               </h1>
-              <p className="text-xl sm:text-2xl text-blue-light leading-normal">
-                Get the Information you need to make the right decision
-                <br className="hidden md:inline" />
-                don't <strong className="text-white font-bold">
-                  {" "}
-                  sell{" "}
-                </strong>
-                your
-                <strong className="text-white font-bold"> vote.</strong>
+              <p className="text-xl sm:text-2xl text-white leading-normal">
+              Get the Information you need to make the right decision <br/> Your vote is your voice.
               </p>
             </div>
             <form className="max-w-sm sm:flex">
@@ -263,7 +257,6 @@ export default class extends Component {
           </div>
           <CardContainer error={this.state.error} hasMore={this.state.hasMore} isLoading={this.state.isLoading} politicians={this.state.politicians} viewAll={this.state.viewAll} isSearchingData={this.state.isSearchingData} isSearching={this.state.isSearching} searchValue={this.state.searchValue} searchResult={this.state.searchResult} handleViewAll={this.handleViewAll} />
         </div>
-
         <div className="container mx-auto">
           <div className="flex flex-col items-center justify-center mb-10 text-center py-10">
             <h2 className="py-5">Compare Candidates</h2>

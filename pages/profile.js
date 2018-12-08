@@ -75,13 +75,13 @@ e.preventDefault();
 
   render() {
 
-    return <div>
+    return <div style={{ fontFamily : "'Poppins', sans-serif;"}}>
         <Nav />
-        <div className="bg-blue-darkest">
+        <div className="introduction">
           <div className="container mx-auto py-20">
             <div className="flex flex-col justify-center items-center md:flex-row">
               <div className="md:mr-20">
-                <img src={`https://res.cloudinary.com/civic-monitor/image/upload/${this.state.politician.image}`} className="w-32 h-32 rounded-full" />
+                <img src={`https://res.cloudinary.com/civic-monitor/image/upload/${this.state.politician.image}`} className="w-32 h-32" style={{ borderRadius: "10px"}} />
               </div>
               <div className="mt-5 w-3/4 flex flex-col items-center md:items-start text-white ">
                 <h2 className="text-center text-white">
