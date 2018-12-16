@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Deploy Master to Heroku
           command: |
-           git remote add deploy dokku@46.101.194.112:kyc && git push deploy master
+           yes YES | git remote add deploy dokku@46.101.194.112:kyc && git push deploy master
      
 
 workflows:
