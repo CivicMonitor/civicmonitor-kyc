@@ -1,4 +1,4 @@
-version: 2
+version: 2.0
 jobs:
   build:
     docker:
@@ -28,8 +28,13 @@ jobs:
 
 workflows:
   version: 2
-  build-deploy:
+  build:
     jobs:
       - build
-      - deploy
-       
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+   
