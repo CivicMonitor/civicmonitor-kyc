@@ -1,0 +1,56 @@
+stages:
+  - deploy
+
+variables:
+  APP_NAME: kyc-app
+  DOKKU_HOST: '46.101.194.112'
+  SSH_DOKKU_PORT: '22'
+
+deploy:
+  image: ilyasemenov/gitlab-ci-git-push
+  stage: deploy
+  environment:
+    name: production
+    url: https://$APP_NAME.civicmonitor.com/
+  only:
+    - master
+  script:
+    - git-push ssh://dokku@$DOKKU_HOST:22/$APP_NAME
+
+review_app:
+  image: ilyasemenov/gitlab-ci-git-push
+  stage: deploy
+  environment:
+    name: review/$CI_ENVIRONMENT_SLUG
+    url: https://$CI_ENVIRONMENT_SLUG.civicmonitor.com/
+    on_stop: stop_review_app
+  only:
+    - branches
+  except:
+    - master
+  script:
+    - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H 22 "$DOKKU_HOST" >> ~/.ssh/known_hosts
+    - ssh -t dokku@46.101.194.112 -- apps:clone --ignore-existing --skip-deploy "$APP_NAME" "$CI_ENVIRONMENT_SLUG"
+    - git push dokku@$DOKKU_HOST:$CI_ENVIRONMENT_SLUG master
+
+
+stop_review_app:
+  image: ilyasemenov/gitlab-ci-git-push
+  stage: deploy
+  environment:
+    name: review/$CI_ENVIRONMENT_SLUG
+    action: stop
+  when: manual
+  script:
+    - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host $DOKKU_HOST\n  Hostname $DOKKU_HOST\n  Port $SSH_DOKKU_PORT\n" >> ~/.ssh/config
+    - ssh-keyscan -H $DOKKU_HOST >> ~/.ssh/known_hosts
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | ssh-add - > ~/.ssh/id_rsa
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
