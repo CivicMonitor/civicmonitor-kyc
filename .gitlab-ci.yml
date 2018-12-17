@@ -15,7 +15,9 @@ deploy:
   only:
     - master
   script:
-    - git-push ssh://dokku@$DOKKU_HOST:22/$APP_NAME
+    - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H 22 "$DOKKU_HOST" >> ~/.ssh/known_hosts
+    - git push dokku@$DOKKU_HOST:$APP_NAME master
 
 review_app:
   image: ilyasemenov/gitlab-ci-git-push
