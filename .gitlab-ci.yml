@@ -48,6 +48,8 @@ stop_review_app:
     - mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
     - echo -e "Host $DOKKU_HOST\n  Hostname $DOKKU_HOST\n  Port $SSH_DOKKU_PORT\n" >> ~/.ssh/config
     - ssh-keyscan -H $DOKKU_HOST >> ~/.ssh/known_hosts
+    - ssh -t dokku@$DOKKU_HOST -- --force apps:destroy "$CI_ENVIRONMENT_SLUG"
+
 
 before_script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
