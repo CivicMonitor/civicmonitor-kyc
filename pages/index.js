@@ -228,7 +228,7 @@ export default class extends Component {
             </div>
             <div className="mb-12">
               <h1 className="font-display text-white text-5xl sm:text-6xl font-semibold mb-4 leading-none">
-                Know your candidates
+                Know your candidates !
               </h1>
               <p className="text-xl sm:text-2xl text-blue-light leading-normal">
                 Get the Information you need to make the right decision
