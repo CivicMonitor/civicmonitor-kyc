@@ -9,6 +9,7 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 // import Comment from "../components/Comment";
 import Share from "../components/Share";
+import { bold } from "ansi-colors";
 
 export default class extends Component {
   static async getInitialProps({ req, query: { id } }) {
@@ -135,20 +136,26 @@ console.log(links);
             <button className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
               Add to Compare List
             </button>
-            <div className="py-2">
-              <h3>Links</h3>
-            { links &&  <p>
-              <strong>Website:</strong> {links.website}
-              </p> }
-            {links.facebook &&  <p>
-              <strong>Facebook:</strong> {links.facebook}
-              </p> }
-            {links.twitter &&  <p>
-              <strong>Twitter:</strong> {links.twitter}
-              </p> }
-            {links.youtube &&  <p>
-              <strong>Youtube:</strong> {links.youtube}
-              </p> }
+          <p className="font-bold my-2">            VISIT:
+</p>
+            <div className="py-2 flex justify-center ">
+                      {links && <p>
+              <a className="mr-2 hover:blue-darkest hover:font-bold focus:font-bold" href={links.website}> Website</a>
+                </p>}
+              {links.facebook && <p>
+                
+                <a className="mr-2 hover:blue-darkest hover:font-bold focus:font-bold" href={links.facebook} > Facebook</a> 
+                 
+                </p>}
+              {links.twitter && <p>
+              <a className="mr-2 hover:blue-darkest hover:font-bold focus:font-bold" href={links.twitter}> Twitter</a>
+                </p>}
+              {links.youtube && <p>
+            
+                <a className="mr-2 hover:blue-darkest hover:font-bold focus:font-bold" href={links.youtube} >Youtube</a>
+             
+              
+                </p>}
             </div>
           </div>
 

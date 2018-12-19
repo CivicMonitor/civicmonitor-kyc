@@ -21,9 +21,9 @@ class CompareCard extends Component {
     //   .then(res => {
     //     this.setState({ issue_position: res.data.data });
     //   });
-    axios.get(`http://civicmonitor.herokuapp.com/api/v2/politicians/${this.props.candidateId}?with_candidate=true`)
+    axios.get(`https://civicmonitor.herokuapp.com/api/v2/politicians/${this.props.candidateId}?with_candidate=true`)
       .then((response) => {
-        return axios.get(`http://civicmonitor.herokuapp.com/api/v2/candidates/${response.data.candidates[0].id}/issue-position/${this.props.issue.id}`)
+        return axios.get(`https://civicmonitor.herokuapp.com/api/v2/candidates/${response.data.candidates[0].id}/issue-position/${this.props.issue.id}`)
 ; // using response.data
       })
       .then((response) => {
@@ -36,9 +36,9 @@ class CompareCard extends Component {
     //   .then(res => {
     //     this.setState({ issue_position: res.data.data });
     //   });
-    axios.get(`http://civicmonitor.herokuapp.com/api/v2/politicians/${this.props.candidateId}?with_candidate=true`)
+    axios.get(`https://civicmonitor.herokuapp.com/api/v2/politicians/${this.props.candidateId}?with_candidate=true`)
       .then((response) => {
-        return axios.get(`http://civicmonitor.herokuapp.com/api/v2/candidates/${response.data.candidates[0].id}/issue-position/${this.props.issue.id}`)
+        return axios.get(`https://civicmonitor.herokuapp.com/api/v2/candidates/${response.data.candidates[0].id}/issue-position/${this.props.issue.id}`)
 ; // using response.data
       })
       .then((response) => {

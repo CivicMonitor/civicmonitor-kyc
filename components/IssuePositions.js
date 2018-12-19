@@ -23,7 +23,7 @@ export default function IssuePositions(props) {
             key={position.id}
             className="bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap"
           >
-        <Accordion className="no-border">
+        <Accordion className="no-border ">
           <AccordionItem > 
             <AccordionItemTitle>
                   {position.issue.title && (
@@ -38,7 +38,7 @@ export default function IssuePositions(props) {
                     <h4 className="mb-5">{position.title}</h4>
                   )}
                   <div
-                    className="leading-loose"
+                  className="leading-loose text-justify"
                     dangerouslySetInnerHTML={{ __html: position.body }}
                   />{" "}
                 </AccordionItemBody>
