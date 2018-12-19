@@ -6,11 +6,14 @@ import Link from "next/link";
 import axios from "axios";
 // import { CompareContainer } from "../components/CompareContainer";
 import Notification from "../components/Notification";
+import { reject } from "any-promise";
 
 export default class extends Component {
   static async getInitialProps({ req }) {
     return axios
-      .get("https://civicmonitor.herokuapp.com/api/v2/politicians?all=true&lite=true&paginate=true")
+      .get(
+        "https://civicmonitor.herokuapp.com/api/v2/politicians?all=true&lite=true&paginate=true"
+      )
       .then(function(response) {
         // console.log(response.data);
         return response.data;
@@ -39,7 +42,6 @@ export default class extends Component {
       searchResult: ""
     };
     this.timeout = 0;
-
 
     this.handleViewAll = this.handleViewAll.bind(this);
   }
@@ -85,7 +87,15 @@ export default class extends Component {
 
   loadPoliticians = next_page_url => {
     this.setState({ isLoading: true }, () => {
-      if (next_page_url == undefined || next_page_url == null) return;
+      if (next_page_url == undefined || next_page_url == null)
+        return this.setState({
+          // Note: Depending on the API you're using, this value may
+          // be returned as part of the payload to indicate that there
+          // is no additional data to be loaded
+          hasMore: next_page_url ? true : false,
+          isLoading: false
+        });
+        
       axios
         .get(next_page_url)
         .then(res => {
@@ -168,11 +178,16 @@ export default class extends Component {
     });
   }
 
-
-
   render() {
-    return <div>
-        <div className="hero-cover" style={{ background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('static/images/cover.jpg')" }}>
+    return (
+      <div>
+        <div
+          className="hero-cover"
+          style={{
+            background:
+              "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('static/images/cover.jpg')"
+          }}
+        >
           <div className="flex justify-center sm:justify-end pt-5 sm:px-5">
             <ul className="list-reset flex">
               <li className="mr-6">
@@ -192,7 +207,7 @@ export default class extends Component {
               <li className="mr-6">
                 <Link prefetch href={{ pathname: "/compare" }}>
                   <a className="text-white no-underline uppercase font-bold text-base hover:text-blue-light">
-                    Compare Candidate
+                    Compare Candidates
                   </a>
                 </Link>
               </li>
@@ -201,8 +216,15 @@ export default class extends Component {
 
           <div className="container mx-auto px-2 py-8 sm:py-12 md:py-18">
             <div className="mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" style={{ width: "80%" }} viewBox="300 1000 3500 900">
-                <polygon className="fill-current text-white hover:text-grey-darker" points="2650.93 1494.24 2650.93 1705.49 1237.03 1705.49 1237.03 1183.11 1968.65 1183.11 1968.65 1494.24 2650.93 1494.24" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ width: "80%" }}
+                viewBox="300 1000 3500 900"
+              >
+                <polygon
+                  className="fill-current text-white hover:text-grey-darker"
+                  points="2650.93 1494.24 2650.93 1705.49 1237.03 1705.49 1237.03 1183.11 1968.65 1183.11 1968.65 1494.24 2650.93 1494.24"
+                />
                 <path d="M1396.3,1271.17l48.83-50.51h-55l-43.32,50.56v-50.56h-41.35v133.81h41.35v-32.65l21.37-22.39,28.21,55h50.92Z" />
                 <path d="M1548.45,1220.66v74l-50.39-74h-38.61v133.81h38.89V1281l50.11,73.48h39V1220.66Z" />
                 <path d="M1727.45,1236.3q-18.08-17.94-51.48-17.92-32.58,0-50.84,18.25t-18.26,51q0,23.46,9.22,39.06t24.05,22.81q14.83,7.21,37.47,7.21,22.28,0,37.2-8.35a56.38,56.38,0,0,0,22.82-23.36q7.89-15,7.89-38.48Q1745.52,1254.24,1727.45,1236.3Zm-30.58,80.84q-7.3,8.67-20.63,8.66-13,0-20.49-8.85t-7.53-29.11q0-20.46,7.58-29.31t20.08-8.85q13,0,20.67,8.71t7.62,27.62Q1704.17,1308.45,1696.87,1317.14Z" />
@@ -221,29 +243,43 @@ export default class extends Component {
                 <path d="M2210,1534.14v33h42.17V1668h41.35V1567.18h42.17v-33Z" />
                 <path d="M2391.37,1637.64v-26.38h64.35V1584h-64.35V1562.7h69.37v-28.56H2349.93V1668h112.82v-30.31Z" />
                 <path d="M2590.84,1604.59q-5.34-8.83-17.07-14.83T2534.93,1578q-10.95-2.28-13.87-4.94a7.42,7.42,0,0,1-3-5.75,9.36,9.36,0,0,1,3.65-7.44q3.65-3.06,10.86-3.06,8.76,0,13.74,4.12t6.52,13.13l39-2.27q-2.57-20.82-16-30.35t-39.11-9.55q-20.91,0-32.91,5.25t-18,14.42a35.14,35.14,0,0,0-6,19.5,32.68,32.68,0,0,0,11.69,25.83q11.58,10.13,38.79,16.25,16.6,3.66,21.17,7.75c3.05,2.75,4.57,5.84,4.57,9.32q0,5.46-4.79,9.62t-13.65,4.15q-11.86,0-18.25-8.11-3.93-5-5.21-14.62l-39.34,2.48q1.74,20.25,14.88,33.41t47.28,13.13q19.44,0,32.22-5.61a44.62,44.62,0,0,0,19.9-16.47,42.41,42.41,0,0,0,7.12-23.73A37.65,37.65,0,0,0,2590.84,1604.59Z" />
-                <path className="fill-current text-white hover:text-grey-darker" d="M628.64,1347.82,537.86,1306,460,1360.8v-69.17H585.41l35.31-100.89H443.46l-94.39,105.93v398.46H460V1533.72l57.64,26-1.44,135.46h111l1.44-203.2-61.24-27.38,61.24-41.06Zm-111,116.73L460,1505.63v-116l57.64,25.23Z" />
-                <path className="fill-current text-white hover:text-grey-darker" d="M845,1190.74v441.69l-67-38.17V1190.74H667v461.15l-.72.72,100.16,55.48L845,1652.61V1716H736.94l-51.16,100.86H860.87L956,1711V1190.74Z" />
-                <path className="fill-current text-white hover:text-grey-darker" d="M1106.06,1291.63h83.58L1225,1190.74H1090.21L995.1,1296.67V1649l-.72.73,139.78,63.4,71.34-77.82-99.44-43.23Z" />
+                <path
+                  className="fill-current text-white hover:text-grey-darker"
+                  d="M628.64,1347.82,537.86,1306,460,1360.8v-69.17H585.41l35.31-100.89H443.46l-94.39,105.93v398.46H460V1533.72l57.64,26-1.44,135.46h111l1.44-203.2-61.24-27.38,61.24-41.06Zm-111,116.73L460,1505.63v-116l57.64,25.23Z"
+                />
+                <path
+                  className="fill-current text-white hover:text-grey-darker"
+                  d="M845,1190.74v441.69l-67-38.17V1190.74H667v461.15l-.72.72,100.16,55.48L845,1652.61V1716H736.94l-51.16,100.86H860.87L956,1711V1190.74Z"
+                />
+                <path
+                  className="fill-current text-white hover:text-grey-darker"
+                  d="M1106.06,1291.63h83.58L1225,1190.74H1090.21L995.1,1296.67V1649l-.72.73,139.78,63.4,71.34-77.82-99.44-43.23Z"
+                />
               </svg>
             </div>
             <div className="mb-12">
-              <h1 className="font-display text-white text-5xl sm:text-6xl font-semibold mb-4 leading-none">
-                Know your candidates !
+              <h1 className="font-display text-white text-5xl sm:text-6xl font-black mb-4 leading-none">
+                Know Your Candidates
               </h1>
               <p className="text-xl sm:text-2xl text-blue-light leading-normal">
-                Get the Information you need to make the right decision
+                Get the Information you need to make the right decision.{" "}
                 <br className="hidden md:inline" />
-                don't <strong className="text-white font-bold">
-                  {" "}
-                  sell{" "}
-                </strong>
-                your
-                <strong className="text-white font-bold"> vote.</strong>
+                Your <strong className="text-white font-bold">vote</strong> is
+                your <strong className="text-white font-bold">voice.</strong>
               </p>
             </div>
             <form className="max-w-sm sm:flex">
-              <input className="block w-full shadow bg-white px-6 py-3 sm:py-4 mb-2 sm:mb-0 rounded sm:rounded-r-none text-lg mb-4 sm:mb-0" placeholder="Enter Politician Name" onChange={e => this.handleSearch(e)} />
-              <button id="search" className="w-full sm:w-auto bg-indigo uppercase rounded sm:rounded-l-none text-white font-bold tracking-wide px-6 py-3 hover:bg-indigo-light" value={this.state.searchValue} onClick={e => this.handleSearchButton(e)}>
+              <input
+                className="block w-full shadow bg-white px-6 py-3 sm:py-4 mb-2 sm:mb-0 rounded sm:rounded-r-none text-lg mb-4 sm:mb-0"
+                placeholder="Enter Candidate's Name"
+                onChange={e => this.handleSearch(e)}
+              />
+              <button
+                id="search"
+                className="w-full sm:w-auto bg-indigo uppercase rounded sm:rounded-l-none text-white font-bold tracking-wide px-6 py-3 hover:bg-indigo-light"
+                value={this.state.searchValue}
+                onClick={e => this.handleSearchButton(e)}
+              >
                 Search
               </button>
             </form>
@@ -256,15 +292,30 @@ export default class extends Component {
               <span className="font-display font-bold tracking-wide uppercase py-4 border-b-2 border-indigo -mb-2px">
                 2019 Presidential Candidates
               </span>
-              <span className="font-semibold text-indigo-dark hover:underline no-underline" role="button" onClick={e => this.handleViewAll(e)}>
+              <span
+                className="font-semibold text-indigo-dark hover:underline no-underline"
+                role="button"
+                onClick={e => this.handleViewAll(e)}
+              >
                 {this.state.viewAll ? "View Less" : "View All"}
               </span>
             </div>
           </div>
-          <CardContainer error={this.state.error} hasMore={this.state.hasMore} isLoading={this.state.isLoading} politicians={this.state.politicians} viewAll={this.state.viewAll} isSearchingData={this.state.isSearchingData} isSearching={this.state.isSearching} searchValue={this.state.searchValue} searchResult={this.state.searchResult} handleViewAll={this.handleViewAll} />
+          <CardContainer
+            error={this.state.error}
+            hasMore={this.state.hasMore}
+            isLoading={this.state.isLoading}
+            politicians={this.state.politicians}
+            viewAll={this.state.viewAll}
+            isSearchingData={this.state.isSearchingData}
+            isSearching={this.state.isSearching}
+            searchValue={this.state.searchValue}
+            searchResult={this.state.searchResult}
+            handleViewAll={this.handleViewAll}
+          />
         </div>
 
-        <div className="container mx-auto">
+        {/* <div className="container mx-auto">
           <div className="flex flex-col items-center justify-center mb-10 text-center py-10">
             <h2 className="py-5">Compare Candidates</h2>
             <p className="mb-5">
@@ -298,9 +349,10 @@ export default class extends Component {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
         <Footer />
         <Notification />
-      </div>;
+      </div>
+    );
   }
 }

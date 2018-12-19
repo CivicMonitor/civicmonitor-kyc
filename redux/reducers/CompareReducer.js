@@ -2,6 +2,7 @@ import { actionTypes } from "../constants/action-types";
 
 export const initialState = {
   issues: [],
+  selectedIssueValue: "",
   compare: [],
   status: {
     type: "",
@@ -58,6 +59,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         selectedIssueValue: payload,
         issues: state.issues,
+        politicians: state.politicians,
         compare: state.compare.filter(function(obj) {
           return obj.id !== payload.id;
         }),
@@ -88,7 +90,7 @@ export default (state = initialState, { type, payload }) => {
       if (payload.type == 1) {
         console.log(payload);
         let newCompare = [...state.compare];
-        newCompare[0]= payload;
+        newCompare[0] = payload;
         return {
           selectedIssueValue: state.selectedIssueValue,
           issues: state.issues,
@@ -96,22 +98,14 @@ export default (state = initialState, { type, payload }) => {
           status: state.status,
           politicians: state.politicians
         };
-      }
-      else if (payload.type == 2) {
+      } else if (payload.type == 2) {
         console.log(payload);
         let newCompare = [...state.compare];
-        newCompare[0] = payload;
+        newCompare[1] = payload;
         return {
           selectedIssueValue: state.selectedIssueValue,
           issues: state.issues,
-          compare: state.compare.reduce(function (acc, curr, index) {
-            if (index == 1) {
-              acc.push(payload);
-            } else {
-              acc.push(curr);
-            }
-            return acc;
-          }, []),
+          compare: newCompare,
           status: state.status,
           politicians: state.politicians
         };
@@ -128,8 +122,7 @@ export default (state = initialState, { type, payload }) => {
             counter: state.counter + 1
           }
         };
-
-      };
+      }
     case actionTypes.SELECT_ISSUE_VALUE:
       return {
         selectedIssueValue: payload,

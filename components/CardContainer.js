@@ -49,7 +49,7 @@ export class CardContainer extends Component {
           {this.props.searchResult && this.props.searchResult.data && this.props.searchResult.data.map(
               politician => {
                 return (
-                  <CardContainer
+                  <Card
                     key={politician.id}
                     name={politician.name}
                     imgPath={politician.image}
@@ -61,6 +61,7 @@ export class CardContainer extends Component {
                 );
               }
             )}
+
 
           {!this.props.isSearching && this.props.viewAll && this.props.politicians.data.map(
               politician => {

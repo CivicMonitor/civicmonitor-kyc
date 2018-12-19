@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function Nav() {
   return <div className="bg-white">
-      <div className="container mx-auto py-6">
-        <div className="flex justify-between items-center">
+      <div className="container mx-auto py-6 ">
+      <div className="flex justify-between items-center flex flex-col md:flex-row">
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-full" viewBox="300 1000 3500 900">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-full" viewBox="300 1000 2500 900">
               <polygon class="fill-current text-black hover:text-grey-darker" points="2650.93 1494.24 2650.93 1705.49 1237.03 1705.49 1237.03 1183.11 1968.65 1183.11 1968.65 1494.24 2650.93 1494.24" />
               <path className="fill-current text-white" d="M1396.3,1271.17l48.83-50.51h-55l-43.32,50.56v-50.56h-41.35v133.81h41.35v-32.65l21.37-22.39,28.21,55h50.92Z" />
               <path className="fill-current text-white" d="M1548.45,1220.66v74l-50.39-74h-38.61v133.81h38.89V1281l50.11,73.48h39V1220.66Z" />

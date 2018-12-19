@@ -6,7 +6,7 @@ import Link from "next/link";
 function Card(props) {
   const { name, imgPath, candidate, politicalParty, compare } = props;
   return (
-    <div className="md:w-1/2 lg:w-1/3 px-3 flex flex-col mb-8">
+    <div className="w-1/2 md:w-1/2 lg:w-1/3 px-3 flex flex-col mb-8">
       <div className="hover:translateY-2px transition bg-white rounded-lg shadow flex-1 flex flex-col">
         <a
           href="#"
