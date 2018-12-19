@@ -2,7 +2,7 @@ stages:
   - deploy
 
 variables:
-  APP_NAME: kyc-app
+  APP_NAME: kyc
   DOKKU_HOST: '46.101.194.112'
   SSH_DOKKU_PORT: '22'
 
