@@ -38,7 +38,7 @@ export default (state = initialState, { type, payload }) => {
           selectedIssueValue: state.selectedIssueValue,
           status: {
             type: "error",
-            text: "You can Only Select Two Candidate",
+            text: "You can Only Select Two Candidates",
             counter: state.status.counter + 1
           }
         };

@@ -56,10 +56,10 @@ class Share extends React.Component {
                 "https://res.cloudinary.com/civic-monitor/image/upload/v1543350730/logo.png",
               description:
                 "Get the Information you need to make the right decision Your vote is your voice.",
-              title: "Know Your Candidate",
+              title: "Know Your Candidates",
               message:
                 "Get the Information you need to make the right decision Your vote is your voice.",
-              subject: "Know Your Candidate",
+              subject: "Know Your Candidates",
               username: "civicmonitor"
             } // (defaults to og:image or twitter:image) // (defaults to og:description or twitter:description) // (defaults to og:title or twitter:title) // (defaults to og:description or twitter:description) // (only for twitter sharing)
           }
