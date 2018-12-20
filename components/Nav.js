@@ -2,7 +2,7 @@ import React from 'react'
 import Link from "next/link";
 
 export default function Nav() {
-  return <div className="bg-white">
+  return <div className="bg-white sticky ">
       <div className="container mx-auto py-6 ">
       <div className="flex justify-between items-center flex flex-col md:flex-row">
           <div>

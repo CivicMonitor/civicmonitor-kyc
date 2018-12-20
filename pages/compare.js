@@ -33,6 +33,8 @@ export class compare extends Component {
           props.loadIssue(data.data);
         })
         .catch(e => console.log(e));
+
+        
     }
 
     //fetch politician if not already fetch

@@ -8,6 +8,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^9.3.1",
+    "awesome-debounce-promise": "^1.0.0",
     "axios": "^0.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "disqus-react": "^1.0.5",
