@@ -9,7 +9,8 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 // import Comment from "../components/Comment";
 import Share from "../components/Share";
-import { bold } from "ansi-colors";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-131193519-1");
 
 export default class extends Component {
   static async getInitialProps({ req, query: { id } }) {
@@ -40,6 +41,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
 
+
     // Sets up our initial state
     this.state = { error: false, hasMore: true, isLoading: false, politicians: [], candidate: [], IssuePositions: [], political_party: "", current_page: "ISSUE_POSITIONS" };
   }
@@ -58,6 +60,9 @@ export default class extends Component {
       political_party,
       IssuePositions: this.props.candidateIssuePosition.data.issue_positions
     });
+
+    ReactGA.pageview(`/profile?id=${politician.id}`);
+
   }
 
 

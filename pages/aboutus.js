@@ -2,6 +2,9 @@ import "../styles/style.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import React, { Component } from "react";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-131193519-1");
+ReactGA.pageview("/aboutus");
 
 export default class extends Component {
   render() {

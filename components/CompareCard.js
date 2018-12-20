@@ -61,8 +61,10 @@ let {name, imgPath,issue, candidateId} = this.props
 console.log(this.state.issue_position);
       return (issue.id &&( <>
           <div className="w-1/2 flex flex-col text-center items-center justify-between sm:mr-10">
+          <div className="sticky pin-t z-50 bg-grey-lighter w-full">
             <img class="w-48 h-48 rounded-full mr-4" src={`https://res.cloudinary.com/civic-monitor/image/upload/${imgPath}`} alt={name} />
             <h2 className="py-5">{name}</h2>
+            </div>
             <Suspense fallback={loadingImg}>
             {this.state.issue_position ? <div className="loose" style={{
               textAlign: "justify",

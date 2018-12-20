@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import Router from "next/router";
 import NProgress from "nprogress";
 
-
 Router.events.on('routeChangeStart', (url) => {
     console.log(`Loading: ${url}`)
     NProgress.start()

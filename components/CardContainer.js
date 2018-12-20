@@ -51,6 +51,7 @@ export class CardContainer extends Component {
                 return (
                   <Card
                     key={politician.id}
+                    id={politician.id}
                     name={politician.name}
                     imgPath={politician.image}
                     candidate={politician.candidates[0]}
@@ -68,6 +69,7 @@ export class CardContainer extends Component {
                 return (
                   <Card
                     key={politician.id}
+                    id={politician.id}
                     name={politician.name}
                     imgPath={politician.image}
                     candidate={politician.memberships[0]}
@@ -86,6 +88,7 @@ export class CardContainer extends Component {
                 return (
                   <Card
                     key={politician.id}
+                    id={politician.id}
                     name={politician.name}
                     imgPath={politician.image}
                     candidate={politician.candidates[0]}

@@ -11,6 +11,9 @@ import {
   removeFromCompare,
   setCompareValue
 } from "../redux/actions/compare-actions";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-131193519-1");
+ReactGA.pageview("/compare");
 
 export class compare extends Component {
   constructor(props) {

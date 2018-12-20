@@ -7,6 +7,12 @@ import axios from "axios";
 // import { CompareContainer } from "../components/CompareContainer";
 import Notification from "../components/Notification";
 import { reject } from "any-promise";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-131193519-1");
+ReactGA.pageview('/');
+
+
+
 
 export default class extends Component {
   static async getInitialProps({ req }) {
@@ -47,6 +53,7 @@ export default class extends Component {
   }
 
   componentWillMount() {
+
     if (!this.state.politicians.length > 0) {
       console.log("first time only");
       this.setState({ politicians: this.props.politicians });

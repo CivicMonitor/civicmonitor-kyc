@@ -51,7 +51,7 @@ export default function Nav() {
               <li className="mr-6">
                 <Link prefetch href={{ pathname: "/compare" }}>
                   <a className="text-blue no-underline uppercase font-bold text-base hover:text-blue-darker">
-                    Compare Candidate
+                    Compare Candidates
                   </a>
                 </Link>
               </li>
