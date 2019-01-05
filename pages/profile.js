@@ -19,8 +19,8 @@ export default class extends Component {
 
 
     return axios.all([
-      axios.get("https://civicmonitor.herokuapp.com/api/v2/candidates/" + id),
-      axios.get("https://civicmonitor.herokuapp.com/api/v2/candidates/" + id + "/issue-positions")
+      axios.get("https://api.civicmonitor.com/api/v2/candidates/" + id),
+      axios.get("https://api.civicmonitor.com/api/v2/candidates/" + id + "/issue-positions")
     ])
       .then(axios.spread((candidate, candidateIssuePosition) => {
         const data = {

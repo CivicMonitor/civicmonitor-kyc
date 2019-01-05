@@ -20,10 +20,7 @@ export default (state = initialState, { type, payload }) => {
         0
       ) {
         return {
-          compare: state.compare,
-          politicians: state.politicians,
-          issues: state.issues,
-          selectedIssueValue: state.selectedIssueValue,
+          ...state,
           status: {
             type: "error",
             text: "Candidate has been added already",
@@ -32,10 +29,7 @@ export default (state = initialState, { type, payload }) => {
         };
       } else if (state.compare.length > 1) {
         return {
-          compare: state.compare,
-          politicians: state.politicians,
-          issues: state.issues,
-          selectedIssueValue: state.selectedIssueValue,
+         ...state,
           status: {
             type: "error",
             text: "You can Only Select Two Candidates",
@@ -44,10 +38,8 @@ export default (state = initialState, { type, payload }) => {
         };
       } else {
         return {
+          ...state,
           compare: state.compare.concat(payload),
-          politicians: state.politicians,
-          issues: state.issues,
-          selectedIssueValue: state.selectedIssueValue,
           status: {
             type: "success",
             text: "Candidate has been added",
@@ -57,9 +49,8 @@ export default (state = initialState, { type, payload }) => {
       }
     case actionTypes.REMOVE_FROM_COMPARE:
       return {
+        ...state,
         selectedIssueValue: payload,
-        issues: state.issues,
-        politicians: state.politicians,
         compare: state.compare.filter(function(obj) {
           return obj.id !== payload.id;
         }),
@@ -72,18 +63,11 @@ export default (state = initialState, { type, payload }) => {
 
     case actionTypes.LOAD_COMPARE_ISSUES:
       return {
-        selectedIssueValue: state.selectedIssueValue,
-        issues: payload,
-        compare: state.compare,
-        status: state.status,
-        politicians: state.politicians
-      };
+        ...state,
+        issues: payload,      };
     case actionTypes.LOAD_COMPARE_POLITICIANS:
       return {
-        selectedIssueValue: state.selectedIssueValue,
-        issues: state.issues,
-        compare: state.compare,
-        status: state.status,
+        ...state,
         politicians: payload
       };
     case actionTypes.SET_COMPARE_VALUE:
@@ -92,30 +76,20 @@ export default (state = initialState, { type, payload }) => {
         let newCompare = [...state.compare];
         newCompare[0] = payload;
         return {
-          selectedIssueValue: state.selectedIssueValue,
-          issues: state.issues,
+         ...state,
           compare: newCompare,
-          status: state.status,
-          politicians: state.politicians
         };
       } else if (payload.type == 2) {
         console.log(payload);
         let newCompare = [...state.compare];
         newCompare[1] = payload;
         return {
-          selectedIssueValue: state.selectedIssueValue,
-          issues: state.issues,
-          compare: newCompare,
-          status: state.status,
-          politicians: state.politicians
+         ...state, 
+          compare: newCompare,   
         };
       } else {
         return {
-          selectedIssueValue: state.selectedIssueValue,
-          issues: state.issues,
-          compare: state.compare,
-          status: state.status,
-          politicians: state.politicians,
+        ...state,
           status: {
             type: "error",
             text: "Something went wrong",
@@ -125,10 +99,8 @@ export default (state = initialState, { type, payload }) => {
       }
     case actionTypes.SELECT_ISSUE_VALUE:
       return {
+        ...state,
         selectedIssueValue: payload,
-        issues: state.issues,
-        politicians: state.politicians,
-        compare: state.compare,
         status: {
           type: "success",
           text: "Selected Issue Updated",

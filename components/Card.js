@@ -27,7 +27,7 @@ function Card(props) {
           <div className="flex justify-between items-baseline">
            
             <Link href={{ pathname: "/profile", query: { id: candidate.id } }} >
-            <a className="no-underline shadow uppercase rounded sm:rounded text-indigo text-sm font-bold tracking-wide px-4 py-2 hover:text-indigo-darker "> Know More</a>
+            <a className="no-underline uppercase rounded sm:rounded text-indigo text-sm font-bold tracking-wide px-4 py-2 hover:text-indigo-darker "> Know More</a>
             </Link>
             <button onClick={e => props.add({
                   id: id,

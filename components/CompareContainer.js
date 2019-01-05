@@ -18,7 +18,7 @@ export class CompareContainer extends Component {
     if (!props.issues.length > 0) {
       console.log(props);
       axios
-        .get("https://civicmonitor.herokuapp.com/api/v2/issues")
+        .get("https://api.civicmonitor.com/api/v2/issues")
         .then(function ({ data }) {
           props.loadIssue(data.data);
         })

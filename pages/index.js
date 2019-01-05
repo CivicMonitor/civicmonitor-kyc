@@ -18,7 +18,7 @@ export default class extends Component {
   static async getInitialProps({ req }) {
     return axios
       .get(
-        "https://civicmonitor.herokuapp.com/api/v2/politicians?all=true&lite=true&paginate=true"
+        "https://api.civicmonitor.com/api/v2/politicians?all=true&lite=true&paginate=true"
       )
       .then(function(response) {
         // console.log(response.data);
@@ -159,7 +159,7 @@ export default class extends Component {
   search(value) {
     this.setState({ isSearchingData: true }, () => {
       axios
-        .get("https://civicmonitor.herokuapp.com/api/v2/search?q=" + value)
+        .get("https://api.civicmonitor.com/api/v2/search?q=" + value)
         .then(res => {
           return res.data;
         })

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Nav from "../components/Nav";
 import axios from "axios";
 import "../styles/style.css";
-import CompareCard from "../components/CompareCard";
+import CompareCardContainer from "../components/CompareCardContainer";
 import {
   loadCompareIssue,
   loadComparePoliticians,
@@ -22,13 +22,14 @@ export class compare extends Component {
     this.handleSelectPoliticianChange = this.handleSelectPoliticianChange.bind(
       this
     );
+
     console.log(props);
 
     //fetch issues if not already fetch
     if (props.issues && !props.issues.length > 0) {
       console.log(props);
       axios
-        .get("https://civicmonitor.herokuapp.com/api/v2/issues")
+        .get("https://api.civicmonitor.com/api/v2/issues")
         .then(function({ data }) {
           props.loadIssue(data.data);
         })
@@ -42,7 +43,7 @@ export class compare extends Component {
       console.log(props);
       axios
         .get(
-          "https://civicmonitor.herokuapp.com/api/v2/politicians?all=true&lite=true"
+          "https://api.civicmonitor.com/api/v2/politicians?all=true&lite=true"
         )
         .then(function({ data }) {
           props.loadPoliticians(data.data);
@@ -170,7 +171,7 @@ export class compare extends Component {
         <div className="container mx-auto">
         
           <div className="flex py-20 items-baseline">
-            {this.props.selectedIssueValue ? this.props.compare.map(e => (<CompareCard name={e.name} candidateId={e.id} issue={this.props.selectedIssueValue} imgPath={e.imgPath} />)) : ""}
+            {this.props.selectedIssueValue ? this.props.compare.map((e, index) => (<CompareCardContainer key={index} name={e.name} candidateId={e.id} issue={this.props.selectedIssueValue} imgPath={e.imgPath} />)) : ""}
             
           </div>
         </div>
