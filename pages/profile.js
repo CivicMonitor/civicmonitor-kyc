@@ -85,7 +85,7 @@ export default class extends Component {
   render() {
     let links = JSON.parse(this.state.politician.links);
 console.log(links);
-    return <div style={{ fontFamily: "'Poppins', sans-serif;" }}>
+    return <div style={{ fontFamily: "'Poppins', 'sans-serif'" }}>
         <Nav />
         <div className="introduction">
           <div className="overlay">
