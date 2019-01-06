@@ -58,7 +58,6 @@ class issuePosition extends Component {
                             )}
                             {position.summary && (
                                 <>
-                                    <h2 className="mb-5 text-left">summary</h2>
                                     <div
                                         className=" leading-loose text-justify"
                                         dangerouslySetInnerHTML={{
