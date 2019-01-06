@@ -5,6 +5,9 @@
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": "10"
+  },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^9.3.1",
