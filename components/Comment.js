@@ -17,10 +17,6 @@ class Comment extends React.Component {
             <div className="article">
                 
                 <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
-<<<<<<< HEAD
-=======
-                    Comments
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
                 </Disqus.CommentCount>
                
                 <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />

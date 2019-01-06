@@ -22,21 +22,12 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <style>{`body { margin: 0 } /* custom! */`}</style>
-<<<<<<< HEAD
           {/* <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           /> */}
           <link rel='stylesheet' type='text/css' href='/static/nprogress.css' />
 
-=======
-          <meta charset="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
         </Head>
         <body className="font-sans text-black antialiased leading-tight bg-grey-lighter">
           <Main />

@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 import React from 'react'
 import Link from "next/link";
-=======
-import React from 'react';
-
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
 
 export default function Nav() {
   return <div className="bg-white sticky ">
       <div className="container mx-auto py-6 ">
       <div className="flex justify-between items-center flex flex-col md:flex-row">
           <div>
-<<<<<<< HEAD
             <svg xmlns="https://www.w3.org/2000/svg" className="w-full" viewBox="300 1000 2500 900">
               <polygon class="fill-current text-black hover:text-grey-darker" points="2650.93 1494.24 2650.93 1705.49 1237.03 1705.49 1237.03 1183.11 1968.65 1183.11 1968.65 1494.24 2650.93 1494.24" />
               <path className="fill-current text-white" d="M1396.3,1271.17l48.83-50.51h-55l-43.32,50.56v-50.56h-41.35v133.81h41.35v-32.65l21.37-22.39,28.21,55h50.92Z" />
@@ -36,11 +30,6 @@ export default function Nav() {
               <path className="fill-current text-black hover:text-grey-darker" d="M845,1190.74v441.69l-67-38.17V1190.74H667v461.15l-.72.72,100.16,55.48L845,1652.61V1716H736.94l-51.16,100.86H860.87L956,1711V1190.74Z" />
               <path className="fill-current text-black hover:text-grey-darker" d="M1106.06,1291.63h83.58L1225,1190.74H1090.21L995.1,1296.67V1649l-.72.73,139.78,63.4,71.34-77.82-99.44-43.23Z" />
             </svg>
-=======
-          <a href="/">
-          <img style={{ height: "120px"}} src="https://res.cloudinary.com/civic-monitor/image/upload/v1543350730/logo.png" className="Know your candidates" alt="logo" />
-          </a>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
           </div>
           <div>{/* search here */}</div>
           <div>
@@ -53,17 +42,11 @@ export default function Nav() {
                 </Link>
               </li>
               <li className="mr-6">
-<<<<<<< HEAD
                 <Link prefetch href={{ pathname: "/aboutus" }}>
                   <a className="text-blue no-underline uppercase font-bold text-base hover:text-blue-darker">
                     About Us
                   </a>
                 </Link>
-=======
-                <a className="text-blue no-underline uppercase font-bold text-base hover:text-blue-darker" href="/aboutus">
-                  About Us
-                </a>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
               </li>
               <li className="mr-6">
                 <Link prefetch href={{ pathname: "/compare" }}>

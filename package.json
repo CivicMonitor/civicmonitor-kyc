@@ -26,7 +26,6 @@
     "react-redux": "^5.1.1",
     "react-toastify": "^4.4.3",
     "redux": "^4.0.1",
-<<<<<<< HEAD
     "redux-devtools-extension": "^2.13.7",
     "redux-thunk": "^2.3.0",
     "sharethis-reactjs": "^1.3.2",
@@ -38,9 +37,5 @@
   "devDependencies": {
     "next-purgecss": "^3.0.0",
     "postcss-loader": "^3.0.0"
-=======
-    "sharethis-reactjs": "^1.3.2",
-    "tailwindcss": "^0.7.2"
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
   }
 }

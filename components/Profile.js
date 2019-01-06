@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "react-accessible-accordion/dist/fancy-example.css";
 import {
@@ -17,12 +16,6 @@ export default function(props) {
     education_university,
     honors
   } = props.politician;
-=======
-import React from 'react'
-
-export default function (props) {
-    const { biography, works, family, education, honors} = props.politician;
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
   return (
     <div style={{ marginTop: "100px" }}>
       
@@ -78,7 +71,6 @@ export default function (props) {
       </div>
 
 
-<<<<<<< HEAD
           {/* another info card */}
           {works && (
           <div className="bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap">
@@ -113,24 +105,9 @@ export default function (props) {
 
 
           
-=======
-    <div style={{marginTop: "100px"}}>
-          {/* another info card */}
-          {biography && <div
-           className="bg-white w-full shadow rounded mt-5 sm:-mt-20 p-5 whitespace-pre-wrap">
-              <h3 className="mb-5"> Biography</h3>
-              <p style={{textAlign: "justify", lineHeight: "2.4", fontSize: "20px", padding: "15px", borderRadius: "5px"}} dangerouslySetInnerHTML={{ __html: biography }} />
-          </div>}
-
-          <div className={biography ? "bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap" : "mt-5 sm:-mt-20 bg-white w-full shadow rounded p-5 whitespace-pre-wrap"}>
-              <h3 className="mb-5">Work Experience</h3>
-              <p style={{textAlign: "justify", lineHeight: "2.4", fontSize: "20px", padding: "15px", borderRadius: "5px"}} dangerouslySetInnerHTML={{ __html: works }} />
-          </div>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
           {/* another info card */}
           {honors && (
           <div className="bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap">
-<<<<<<< HEAD
 
               <Accordion className="no-border">
                   <AccordionItem>
@@ -159,16 +136,10 @@ export default function (props) {
               </Accordion>
 
           </div>)}
-=======
-              <h3 className="mb-5">Honors</h3>
-              <p style={{textAlign: "justify", lineHeight: "2.4", fontSize: "20px",  padding: "15px", borderRadius: "5px"}}  dangerouslySetInnerHTML={{ __html: honors }} />
-          </div>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
 
           {/* another info card */}
           {family && (
           <div className="bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap">
-<<<<<<< HEAD
 
               <Accordion className="no-border">
                   <AccordionItem>
@@ -197,15 +168,9 @@ export default function (props) {
 
           </div>)}
 
-=======
-              <h3 className="mb-5">Family</h3>
-              <p style={{textAlign: "justify", lineHeight: "2.4", fontSize: "20px",  padding: "15px", borderRadius: "5px"}}  dangerouslySetInnerHTML={{ __html: family }} />
-          </div>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
           {/* another info card */}
           {biography && (
           <div className="bg-white w-full shadow rounded mt-5 p-5 whitespace-pre-wrap">
-<<<<<<< HEAD
 
               <Accordion className="no-border">
                   <AccordionItem>
@@ -236,11 +201,6 @@ export default function (props) {
           </div> )}
 
     
-=======
-              <h3 className="mb-5">Education</h3>
-              <p style={{textAlign: "justify", lineHeight: "2.4", fontSize: "20px", padding: "15px", borderRadius: "5px"}}  dangerouslySetInnerHTML={{ __html: education }} />
-          </div>
->>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
     </div>
   );
 }
