@@ -1,8 +1,11 @@
 @tailwind preflight;
 @tailwind utilities;
 @tailwind components;
+
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Poppins');
 /* Your custom CSS here */
 
+<<<<<<< HEAD
 a {
   text-decoration: none;
   @apply .text-blue-dark;
@@ -18,6 +21,23 @@ a {
     background-size: cover;
     background-color: rgb(52, 144, 220);
     position: relative;
+=======
+.introduction {
+    background: -webkit-linear-gradient(bottom,#01502B 0,#01502B 30%,#03A65A 100%);
+
+    background: -o-linear-gradient(bottom,#01502B 0,#01502B 30%,#03A65A 100%);
+    
+    background: linear-gradient(to top,#01502B 0,#01502B 30%,#03A65A 100%);
+    
+    background-image: url(https://res.cloudinary.com/civic-monitor/image/upload/v1544262571/ballot-black-and-white-black-and-white-1550337.jpg);
+    
+    background-size: cover;
+    
+    background-color: rgb(52, 144, 220);
+    
+    position: relative;
+    
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
     color: #fff;
 }
 

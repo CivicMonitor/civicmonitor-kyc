@@ -1,6 +1,13 @@
 import React from "react";
+<<<<<<< HEAD
 
 import { StickyShareButtons } from "sharethis-reactjs";
+=======
+import { InlineReactionButtons } from "sharethis-reactjs";
+import { InlineShareButtons } from "sharethis-reactjs";
+import { StickyShareButtons } from "sharethis-reactjs";
+import { InlineFollowButtons } from "sharethis-reactjs";
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
 
 class Share extends React.Component {
   render() {
@@ -56,10 +63,17 @@ class Share extends React.Component {
                 "https://res.cloudinary.com/civic-monitor/image/upload/v1543350730/logo.png",
               description:
                 "Get the Information you need to make the right decision Your vote is your voice.",
+<<<<<<< HEAD
               title: "Know Your Candidates",
               message:
                 "Get the Information you need to make the right decision Your vote is your voice.",
               subject: "Know Your Candidates",
+=======
+              title: "Know Your Candidate",
+              message:
+                "Get the Information you need to make the right decision Your vote is your voice.",
+              subject: "Know Your Candidate",
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
               username: "civicmonitor"
             } // (defaults to og:image or twitter:image) // (defaults to og:description or twitter:description) // (defaults to og:title or twitter:title) // (defaults to og:description or twitter:description) // (only for twitter sharing)
           }

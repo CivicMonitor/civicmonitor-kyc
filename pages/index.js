@@ -1,5 +1,10 @@
 import "../styles/style.css";
+<<<<<<< HEAD
 import CardContainer from "../components/CardContainer";
+=======
+import Nav from "../components/Nav";
+import Card from "../components/Card";
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
 import Footer from "../components/Footer";
 import React, { Component } from "react";
 import Link from "next/link";
@@ -187,6 +192,7 @@ export default class extends Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div>
         <div
           className="hero-cover"
@@ -287,6 +293,25 @@ export default class extends Component {
                 value={this.state.searchValue}
                 onClick={e => this.handleSearchButton(e)}
               >
+=======
+      <div style={{ fontFamily : "Poppins, sans-serif"}}>
+      <Nav />
+        <div className="hero-cover" style={{ textAlign: "left", minHeight: "550px", background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('static/images/cover.jpg')" }}>
+
+
+          <div className="container mx-auto px-2 py-8 sm:py-12 md:py-18">
+            <div className="mb-12">
+              <h1 style={{ fontFamily : "Black Han Sans, sans-serif;", paddingTop: "100px"}} className="font-display text-white text-5xl sm:text-6xl font-semibold mb-4 leading-none">
+                Know your candidates
+              </h1>
+              <p className="text-xl sm:text-2xl text-white leading-normal">
+              Get the Information you need to make the right decision <br/> Your vote is your voice.
+              </p>
+            </div>
+            <form className="max-w-sm sm:flex">
+              <input className="block w-full shadow bg-white px-6 py-3 sm:py-4 mb-2 sm:mb-0 rounded sm:rounded-r-none text-lg mb-4 sm:mb-0" placeholder="Enter Candidate's Name" onChange={e => this.handleSearch(e)} />
+              <button id="search" className="w-full sm:w-auto bg-indigo uppercase rounded sm:rounded-l-none text-white font-bold tracking-wide px-6 py-3 hover:bg-indigo-light" value={this.state.searchValue} onClick={e => this.handleSearchButton(e)}>
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
                 Search
               </button>
             </form>
@@ -322,6 +347,7 @@ export default class extends Component {
           />
         </div>
 
+<<<<<<< HEAD
         {/* <div className="container mx-auto">
           <div className="flex flex-col items-center justify-center mb-10 text-center py-10">
             <h2 className="py-5">Compare Candidates</h2>
@@ -361,5 +387,9 @@ export default class extends Component {
         <Notification />
       </div>
     );
+=======
+       <Footer />
+      </div>);
+>>>>>>> 0a7974b3945905b7f821bead200381e635a85c50
   }
 }
